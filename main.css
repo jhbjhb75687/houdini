@@ -1,0 +1,1388 @@
+@import url("https://fonts.googleapis.com/css?family=Coming+Soon");
+* {
+  transition: 2s;
+}
+
+html, body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #242026;
+}
+
+label {
+  cursor: pointer;
+}
+
+input {
+  display: none;
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Coming Soon", cursive;
+  margin: 10px auto;
+}
+
+.card {
+  width: 700px;
+  height: 460px;
+  min-width: 700px;
+  min-height: 460px;
+  background-image: linear-gradient(40deg, #fff3d8, #ffd987, #cc921e);
+  background-size: 200% 100%;
+  background-position: 0;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.title {
+  font-family: "Coming Soon", cursive;
+  font-size: 60px;
+  margin: 40px 45px;
+  color: #4c2a1e;
+  transform: rotate(-3deg);
+  position: absolute;
+  z-index: 999;
+  animation: titleAni 2s infinite;
+}
+.title span {
+  display: block;
+  line-height: 1.3;
+}
+
+.cake {
+  width: 260px;
+  height: 65px;
+  position: absolute;
+  top: 56%;
+  left: 17%;
+  z-index: 999;
+}
+
+.candle-group {
+  width: 20%;
+  height: 65%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.candle-group .light {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+  top: -80%;
+  animation: lightAni 1s infinite;
+}
+.candle-group .smoke {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}
+.candle-group .smoke:before, .candle-group .smoke:after {
+  content: "";
+  display: none;
+  background-color: rgba(179, 177, 181, 0.8);
+  box-shadow: 0 0 5px rgba(179, 177, 181, 0.8);
+  position: absolute;
+}
+.candle-group .candle {
+  background: #ff593f;
+  width: 20%;
+  height: 100%;
+  position: relative;
+  border: 4px solid #4c2a1e;
+  border-radius: 5px 5px 0 0;
+  box-shadow: -3px 0px rgba(0, 0, 0, 0.15) inset;
+}
+.candle-group .candle:before {
+  content: "";
+  display: block;
+  background: white;
+  width: 100%;
+  height: 35%;
+  transform: skewY(-30deg);
+  position: absolute;
+  top: 30%;
+  box-shadow: -3px 0px rgba(0, 0, 0, 0.15) inset;
+}
+.candle-group .candle .fire {
+  width: 130%;
+  height: 45%;
+  position: absolute;
+  background: #ffcc66;
+  top: 0;
+  left: 100%;
+  border-radius: 100% 0 60% 50%/60% 0 100% 50%;
+  border: 4px solid #4c2a1e;
+  transform: translate(-40%, -100%) rotate(-28deg);
+  transform-origin: 50% 100%;
+  box-shadow: -3px 0px rgba(0, 0, 0, 0.15) inset;
+  animation: fireAni 1s infinite;
+}
+
+.cake-top {
+  width: 64%;
+  height: 90%;
+  background-color: #54728c;
+  margin: auto;
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  border-top: 4px solid #4c2a1e;
+  border-left: 4px solid #4c2a1e;
+  border-right: 4px solid #4c2a1e;
+  box-shadow: -25px 0px rgba(0, 0, 0, 0.15) inset;
+}
+.cake-top:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 30%;
+  background-color: #85b6bf;
+  position: relative;
+  top: 50%;
+  transform: translatey(-50%);
+  box-shadow: -25px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.cake-bottom {
+  width: 80%;
+  height: 100%;
+  background-color: #fcdda4;
+  border-radius: 10px 10px 0 0;
+  margin: auto;
+  border-left: 4px solid #4c2a1e;
+  border-right: 4px solid #4c2a1e;
+  border-top: 4px solid #4c2a1e;
+  box-shadow: -35px 0px rgba(0, 0, 0, 0.15) inset;
+}
+.cake-bottom .butter {
+  width: 100%;
+  height: 55%;
+  background-color: #fc7164;
+  display: flex;
+  position: relative;
+  border-radius: 7px 7px 0 0;
+  box-shadow: -35px 0px rgba(0, 0, 0, 0.15) inset;
+}
+.cake-bottom .butter .butter-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  position: relative;
+  top: 40%;
+  background-color: #fc7164;
+}
+.cake-bottom .butter .butter-circle:nth-of-type(6) {
+  box-shadow: -35px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.plate {
+  width: 100%;
+  height: 20%;
+  border-radius: 10px;
+  background-color: #4c2a1e;
+  left: -50%;
+  box-shadow: -45px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.boy {
+  width: 230px;
+  height: 280px;
+  position: absolute;
+  top: 15%;
+  left: 55%;
+  z-index: 99;
+}
+
+.boy-head {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 99;
+}
+
+.hairs {
+  width: 110%;
+  height: 60%;
+  position: absolute;
+  z-index: 10;
+  transform: translatex(-4%) rotate(7deg);
+}
+.hairs [class^=hair] {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent transparent #4c2a1e transparent;
+  display: inline-block;
+  position: absolute;
+}
+.hairs .hair1 {
+  border-width: 0 60px 120px 40px;
+  transform: rotate(-30deg);
+  top: -5%;
+  left: -8%;
+}
+.hairs .hair2 {
+  border-width: 0 50px 135px 50px;
+  transform: rotate(-15deg);
+  top: -25%;
+  left: 5%;
+}
+.hairs .hair3 {
+  border-width: 0 60px 130px 50px;
+  transform: rotate(-5deg);
+  top: -30%;
+  left: 20%;
+}
+.hairs .hair4 {
+  border-width: 0 50px 140px 60px;
+  transform: rotate(5deg);
+  top: -35%;
+  left: 35%;
+}
+.hairs .hair5 {
+  border-width: 0 60px 130px 50px;
+  transform: rotate(15deg);
+  top: -25%;
+  left: 55%;
+}
+.hairs .hair6 {
+  border-width: 0 50px 120px 50px;
+  transform: rotate(20deg);
+  top: -10%;
+  left: 70%;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  border-radius: 150px 150px 160px 130px;
+  background-color: #ffddad;
+  position: relative;
+  border: 4px solid #4c2a1e;
+  box-shadow: -20px 0px rgba(0, 0, 0, 0.15) inset;
+}
+.face .eyebrows {
+  position: relative;
+  top: 35%;
+  left: -10%;
+  width: 100%;
+  height: 15%;
+  animation: eyebrowsAni 2s infinite;
+}
+.face .eyebrows:before, .face .eyebrows:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  z-index: 10;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+}
+.face .eyebrows:before {
+  border-width: 30px 0 0 100px;
+  border-color: transparent transparent transparent #4c2a1e;
+  transform: rotate(12deg);
+  left: -3%;
+}
+.face .eyebrows:after {
+  border-width: 0 0 30px 120px;
+  border-color: transparent transparent #4c2a1e transparent;
+  transform: rotate(-12deg);
+  left: 58%;
+  top: -1%;
+}
+.face .blush {
+  top: 65%;
+  position: absolute;
+  width: 70%;
+  height: 7%;
+  z-index: 999;
+  animation: blushAni 2s infinite;
+}
+.face .blush:before, .face .blush:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #ffa49e;
+  border-radius: 45%;
+  box-shadow: -8px -5px rgba(0, 0, 0, 0.1) inset;
+  border: 4px solid #4c2a1e;
+}
+.face .blush:before {
+  width: 25%;
+  height: 100%;
+  left: -20%;
+}
+.face .blush:after {
+  width: 30%;
+  height: 105%;
+  left: 100%;
+  top: 10%;
+}
+.face .eyes {
+  position: relative;
+  top: 37%;
+  left: 8%;
+  width: 90%;
+  height: 11%;
+}
+.face .eyes:before, .face .eyes:after {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 100%;
+  background-color: #4c2a1e;
+  border-radius: 45%;
+  position: absolute;
+  z-index: 10;
+  animation: blink 2s infinite;
+}
+.face .eyes:before {
+  left: 0;
+}
+.face .eyes:after {
+  left: 55%;
+}
+.face .mouth {
+  position: relative;
+  top: 45%;
+  left: 24%;
+  width: 20%;
+  height: 20%;
+  box-shadow: 15px 0px rgba(0, 0, 0, 0.15) inset;
+  border-radius: 48%;
+  background-color: #4c2a1e;
+  transform: rotate(-5deg);
+  transform-origin: 0 50%;
+  animation: breathMouth 2s infinite;
+}
+
+.boy-body {
+  width: 36%;
+  height: 26.8%;
+  position: relative;
+  margin: auto;
+}
+
+.body {
+  width: 90%;
+  height: 80%;
+  position: relative;
+  z-index: 50;
+  border-radius: 50% 50% 0 0;
+  background-color: #4b84d8;
+  border: 4px solid #4c2a1e;
+  top: -11%;
+  box-shadow: -25px 0px rgba(0, 0, 0, 0.15) inset;
+  z-index: 8;
+  overflow: hidden;
+  animation: breath 2s infinite;
+}
+.body:before, .body:after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 4px solid #4c2a1e;
+  border-radius: 50%;
+  position: relative;
+  top: 14%;
+  left: 6%;
+  margin: 10px;
+  box-shadow: -3px 0px rgba(0, 0, 0, 0.15) inset;
+}
+
+.hands .left-hand, .hands .right-hand {
+  width: 35%;
+  height: 130%;
+  border-radius: 20px;
+  background-color: #ffddad;
+  position: absolute;
+  border: 4px solid #4c2a1e;
+  box-shadow: -10px 0px rgba(0, 0, 0, 0.15) inset;
+  z-index: 1000;
+  transform-origin: center top;
+}
+.hands .left-hand:before, .hands .right-hand:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 30%;
+  background-color: #4b84d8;
+  box-shadow: -10px 0px rgba(0, 0, 0, 0.15) inset;
+  border: 4px solid #4c2a1e;
+  border-radius: 20px 20px 0 0;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+}
+.hands .left-hand {
+  top: 25%;
+  left: 4px;
+  transform: rotate(100deg);
+  z-index: -1;
+  animation: leftHandAni 2s infinite;
+}
+.hands .right-hand {
+  top: 25%;
+  left: 50%;
+  transform: rotate(-120deg);
+  animation: rightHandAni 2s infinite;
+}
+
+.desk {
+  width: 100%;
+  height: 15%;
+  border-top: 4px solid #4c2a1e;
+  position: absolute;
+  top: 88%;
+  background-color: #f4b7b5;
+  z-index: 50;
+  box-shadow: 0px -20px rgba(0, 0, 0, 0.2) inset;
+}
+
+.sprinkles {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.sprinkles [class^=sprinkle] {
+  width: 5px;
+  height: 10px;
+  border-radius: 50%;
+  animation: sprinkleAni 5s infinite;
+}
+.sprinkles .sprinkle1 {
+  position: absolute;
+  left: 62.6897931151%;
+  top: 21.2650326548%;
+  background-color: rgb(255, 153, 100);
+  animation-delay: -0.1s;
+}
+.sprinkles .sprinkle2 {
+  position: absolute;
+  left: 37.8881084001%;
+  top: 46.4993560846%;
+  background-color: rgb(201, 131, 209);
+  animation-delay: -0.2s;
+}
+.sprinkles .sprinkle3 {
+  position: absolute;
+  left: 23.919183463%;
+  top: 59.503636704%;
+  background-color: rgb(192, 104, 151);
+  animation-delay: -0.3s;
+}
+.sprinkles .sprinkle4 {
+  position: absolute;
+  left: 70.3542546658%;
+  top: 42.0289384964%;
+  background-color: rgb(255, 196, 175);
+  animation-delay: -0.4s;
+}
+.sprinkles .sprinkle5 {
+  position: absolute;
+  left: 68.3150227692%;
+  top: 44.5730694818%;
+  background-color: rgb(176, 200, 148);
+  animation-delay: -0.5s;
+}
+.sprinkles .sprinkle6 {
+  position: absolute;
+  left: 69.0821205354%;
+  top: -17.4038837699%;
+  background-color: rgb(207, 91, 229);
+  animation-delay: -0.6s;
+}
+.sprinkles .sprinkle7 {
+  position: absolute;
+  left: 36.6726045452%;
+  top: -15.1953557615%;
+  background-color: rgb(228, 124, 161);
+  animation-delay: -0.7s;
+}
+.sprinkles .sprinkle8 {
+  position: absolute;
+  left: 17.0059502648%;
+  top: 68.1389616194%;
+  background-color: rgb(192, 219, 218);
+  animation-delay: -0.8s;
+}
+.sprinkles .sprinkle9 {
+  position: absolute;
+  left: 30.2600740926%;
+  top: -18.4932141775%;
+  background-color: rgb(156, 87, 107);
+  animation-delay: -0.9s;
+}
+.sprinkles .sprinkle10 {
+  position: absolute;
+  left: 78.3732101581%;
+  top: 63.6492687676%;
+  background-color: rgb(199, 126, 205);
+  animation-delay: -1s;
+}
+.sprinkles .sprinkle11 {
+  position: absolute;
+  left: 26.5985951424%;
+  top: 71.4222991301%;
+  background-color: rgb(201, 174, 186);
+  animation-delay: -1.1s;
+}
+.sprinkles .sprinkle12 {
+  position: absolute;
+  left: 35.3982660738%;
+  top: -8.5282230981%;
+  background-color: rgb(254, 112, 174);
+  animation-delay: -1.2s;
+}
+.sprinkles .sprinkle13 {
+  position: absolute;
+  left: 83.344349308%;
+  top: 8.1573329612%;
+  background-color: rgb(255, 122, 142);
+  animation-delay: -1.3s;
+}
+.sprinkles .sprinkle14 {
+  position: absolute;
+  left: 58.4148686515%;
+  top: 11.5244441058%;
+  background-color: rgb(209, 157, 107);
+  animation-delay: -1.4s;
+}
+.sprinkles .sprinkle15 {
+  position: absolute;
+  left: 95.6989295091%;
+  top: 27.1820279311%;
+  background-color: rgb(174, 230, 116);
+  animation-delay: -1.5s;
+}
+.sprinkles .sprinkle16 {
+  position: absolute;
+  left: 67.6610320532%;
+  top: 50.4600643381%;
+  background-color: rgb(222, 128, 102);
+  animation-delay: -1.6s;
+}
+.sprinkles .sprinkle17 {
+  position: absolute;
+  left: 96.4613950222%;
+  top: -4.751031325%;
+  background-color: rgb(169, 166, 185);
+  animation-delay: -1.7s;
+}
+.sprinkles .sprinkle18 {
+  position: absolute;
+  left: 35.953802688%;
+  top: 62.7538688331%;
+  background-color: rgb(206, 227, 140);
+  animation-delay: -1.8s;
+}
+.sprinkles .sprinkle19 {
+  position: absolute;
+  left: 1.3129424534%;
+  top: 65.8079923656%;
+  background-color: rgb(178, 217, 198);
+  animation-delay: -1.9s;
+}
+.sprinkles .sprinkle20 {
+  position: absolute;
+  left: 97.7092064313%;
+  top: 77.68375392%;
+  background-color: rgb(204, 92, 212);
+  animation-delay: -2s;
+}
+.sprinkles .sprinkle21 {
+  position: absolute;
+  left: 74.3970879305%;
+  top: 4.5481942537%;
+  background-color: rgb(173, 225, 179);
+  animation-delay: -2.1s;
+}
+.sprinkles .sprinkle22 {
+  position: absolute;
+  left: 83.7516746548%;
+  top: 31.6609719332%;
+  background-color: rgb(181, 153, 145);
+  animation-delay: -2.2s;
+}
+.sprinkles .sprinkle23 {
+  position: absolute;
+  left: 62.4471751309%;
+  top: 71.5654227059%;
+  background-color: rgb(255, 158, 101);
+  animation-delay: -2.3s;
+}
+.sprinkles .sprinkle24 {
+  position: absolute;
+  left: 30.8894529846%;
+  top: 26.5126067793%;
+  background-color: rgb(255, 85, 209);
+  animation-delay: -2.4s;
+}
+.sprinkles .sprinkle25 {
+  position: absolute;
+  left: 13.2446073815%;
+  top: 14.2939823694%;
+  background-color: rgb(192, 128, 86);
+  animation-delay: -2.5s;
+}
+.sprinkles .sprinkle26 {
+  position: absolute;
+  left: 28.1856986945%;
+  top: 44.6288717289%;
+  background-color: rgb(154, 120, 122);
+  animation-delay: -2.6s;
+}
+.sprinkles .sprinkle27 {
+  position: absolute;
+  left: 56.4286640559%;
+  top: 25.7904368684%;
+  background-color: rgb(187, 213, 224);
+  animation-delay: -2.7s;
+}
+.sprinkles .sprinkle28 {
+  position: absolute;
+  left: 15.5869834234%;
+  top: 53.9858003559%;
+  background-color: rgb(206, 172, 112);
+  animation-delay: -2.8s;
+}
+.sprinkles .sprinkle29 {
+  position: absolute;
+  left: 84.4702458089%;
+  top: 24.0501451114%;
+  background-color: rgb(228, 142, 181);
+  animation-delay: -2.9s;
+}
+.sprinkles .sprinkle30 {
+  position: absolute;
+  left: 59.2659599107%;
+  top: -4.5446481907%;
+  background-color: rgb(156, 181, 193);
+  animation-delay: -3s;
+}
+.sprinkles .sprinkle31 {
+  position: absolute;
+  left: 52.8365060369%;
+  top: 43.945471328%;
+  background-color: rgb(255, 114, 202);
+  animation-delay: -3.1s;
+}
+.sprinkles .sprinkle32 {
+  position: absolute;
+  left: 77.6921047461%;
+  top: -14.3894907577%;
+  background-color: rgb(160, 132, 145);
+  animation-delay: -3.2s;
+}
+.sprinkles .sprinkle33 {
+  position: absolute;
+  left: 15.9441269862%;
+  top: 62.2891558116%;
+  background-color: rgb(255, 163, 201);
+  animation-delay: -3.3s;
+}
+.sprinkles .sprinkle34 {
+  position: absolute;
+  left: 93.6156665825%;
+  top: 71.4208476836%;
+  background-color: rgb(236, 90, 223);
+  animation-delay: -3.4s;
+}
+.sprinkles .sprinkle35 {
+  position: absolute;
+  left: 43.2445267975%;
+  top: 77.5089124678%;
+  background-color: rgb(231, 112, 134);
+  animation-delay: -3.5s;
+}
+.sprinkles .sprinkle36 {
+  position: absolute;
+  left: 29.8077455045%;
+  top: 41.5000021838%;
+  background-color: rgb(217, 125, 167);
+  animation-delay: -3.6s;
+}
+.sprinkles .sprinkle37 {
+  position: absolute;
+  left: 42.7686227995%;
+  top: 24.801617992%;
+  background-color: rgb(255, 211, 193);
+  animation-delay: -3.7s;
+}
+.sprinkles .sprinkle38 {
+  position: absolute;
+  left: 97.1662987359%;
+  top: 40.9146443898%;
+  background-color: rgb(188, 128, 95);
+  animation-delay: -3.8s;
+}
+.sprinkles .sprinkle39 {
+  position: absolute;
+  left: 27.336275393%;
+  top: 75.8005838519%;
+  background-color: rgb(223, 186, 190);
+  animation-delay: -3.9s;
+}
+.sprinkles .sprinkle40 {
+  position: absolute;
+  left: 44.3747187816%;
+  top: 0.0988015748%;
+  background-color: rgb(255, 132, 147);
+  animation-delay: -4s;
+}
+.sprinkles .sprinkle41 {
+  position: absolute;
+  left: 69.3447236633%;
+  top: 2.600938735%;
+  background-color: rgb(237, 213, 89);
+  animation-delay: -4.1s;
+}
+.sprinkles .sprinkle42 {
+  position: absolute;
+  left: 10.987365878%;
+  top: 79.1326928142%;
+  background-color: rgb(255, 175, 199);
+  animation-delay: -4.2s;
+}
+.sprinkles .sprinkle43 {
+  position: absolute;
+  left: 29.0609917732%;
+  top: 2.6278696437%;
+  background-color: rgb(191, 98, 102);
+  animation-delay: -4.3s;
+}
+.sprinkles .sprinkle44 {
+  position: absolute;
+  left: 45.9388501675%;
+  top: 53.211440212%;
+  background-color: rgb(254, 181, 129);
+  animation-delay: -4.4s;
+}
+.sprinkles .sprinkle45 {
+  position: absolute;
+  left: 41.4870292019%;
+  top: -0.636542486%;
+  background-color: rgb(221, 102, 183);
+  animation-delay: -4.5s;
+}
+.sprinkles .sprinkle46 {
+  position: absolute;
+  left: 85.8373998592%;
+  top: -10.9884136742%;
+  background-color: rgb(255, 147, 175);
+  animation-delay: -4.6s;
+}
+.sprinkles .sprinkle47 {
+  position: absolute;
+  left: 77.9356048094%;
+  top: 9.5191940516%;
+  background-color: rgb(181, 155, 134);
+  animation-delay: -4.7s;
+}
+.sprinkles .sprinkle48 {
+  position: absolute;
+  left: 7.4540476026%;
+  top: 25.2734301205%;
+  background-color: rgb(194, 143, 104);
+  animation-delay: -4.8s;
+}
+.sprinkles .sprinkle49 {
+  position: absolute;
+  left: 26.1745921239%;
+  top: -1.4936284703%;
+  background-color: rgb(255, 127, 141);
+  animation-delay: -4.9s;
+}
+.sprinkles .sprinkle50 {
+  position: absolute;
+  left: 23.5038923398%;
+  top: 47.1672038276%;
+  background-color: rgb(237, 186, 220);
+  animation-delay: -5s;
+}
+.sprinkles .sprinkle51 {
+  position: absolute;
+  left: 29.9671457854%;
+  top: 1.4032252935%;
+  background-color: rgb(255, 228, 191);
+  animation-delay: -5.1s;
+}
+.sprinkles .sprinkle52 {
+  position: absolute;
+  left: 41.7034995914%;
+  top: 71.0495497181%;
+  background-color: rgb(158, 99, 81);
+  animation-delay: -5.2s;
+}
+.sprinkles .sprinkle53 {
+  position: absolute;
+  left: 5.4608179766%;
+  top: 20.2363724382%;
+  background-color: rgb(255, 137, 148);
+  animation-delay: -5.3s;
+}
+.sprinkles .sprinkle54 {
+  position: absolute;
+  left: 52.0233839771%;
+  top: 20.0364081371%;
+  background-color: rgb(255, 209, 100);
+  animation-delay: -5.4s;
+}
+.sprinkles .sprinkle55 {
+  position: absolute;
+  left: 41.7184293542%;
+  top: -18.6873501676%;
+  background-color: rgb(253, 178, 224);
+  animation-delay: -5.5s;
+}
+.sprinkles .sprinkle56 {
+  position: absolute;
+  left: 51.3188176953%;
+  top: 6.1207037131%;
+  background-color: rgb(180, 175, 185);
+  animation-delay: -5.6s;
+}
+.sprinkles .sprinkle57 {
+  position: absolute;
+  left: 46.5034100119%;
+  top: -2.1051860311%;
+  background-color: rgb(206, 220, 95);
+  animation-delay: -5.7s;
+}
+.sprinkles .sprinkle58 {
+  position: absolute;
+  left: 68.4404042766%;
+  top: -19.7225034059%;
+  background-color: rgb(234, 121, 179);
+  animation-delay: -5.8s;
+}
+.sprinkles .sprinkle59 {
+  position: absolute;
+  left: 42.0114109869%;
+  top: 54.4240056974%;
+  background-color: rgb(227, 110, 201);
+  animation-delay: -5.9s;
+}
+.sprinkles .sprinkle60 {
+  position: absolute;
+  left: 66.5627270116%;
+  top: -7.4911055727%;
+  background-color: rgb(185, 104, 210);
+  animation-delay: -6s;
+}
+.sprinkles .sprinkle61 {
+  position: absolute;
+  left: 8.1075962921%;
+  top: 8.7260150504%;
+  background-color: rgb(199, 165, 192);
+  animation-delay: -6.1s;
+}
+.sprinkles .sprinkle62 {
+  position: absolute;
+  left: 55.7344706936%;
+  top: 55.573136103%;
+  background-color: rgb(255, 159, 188);
+  animation-delay: -6.2s;
+}
+.sprinkles .sprinkle63 {
+  position: absolute;
+  left: 51.632895814%;
+  top: 32.0751415648%;
+  background-color: rgb(243, 197, 156);
+  animation-delay: -6.3s;
+}
+.sprinkles .sprinkle64 {
+  position: absolute;
+  left: 16.4257014823%;
+  top: 45.7244267142%;
+  background-color: rgb(255, 195, 113);
+  animation-delay: -6.4s;
+}
+.sprinkles .sprinkle65 {
+  position: absolute;
+  left: 91.6148136292%;
+  top: 78.881639013%;
+  background-color: rgb(225, 197, 206);
+  animation-delay: -6.5s;
+}
+.sprinkles .sprinkle66 {
+  position: absolute;
+  left: 73.0024167479%;
+  top: 21.4453688386%;
+  background-color: rgb(255, 195, 154);
+  animation-delay: -6.6s;
+}
+.sprinkles .sprinkle67 {
+  position: absolute;
+  left: 71.1378436447%;
+  top: 30.463205939%;
+  background-color: rgb(255, 87, 132);
+  animation-delay: -6.7s;
+}
+.sprinkles .sprinkle68 {
+  position: absolute;
+  left: 19.7211626199%;
+  top: 70.643416803%;
+  background-color: rgb(255, 192, 99);
+  animation-delay: -6.8s;
+}
+.sprinkles .sprinkle69 {
+  position: absolute;
+  left: 4.4206665687%;
+  top: 23.0602757821%;
+  background-color: rgb(202, 212, 192);
+  animation-delay: -6.9s;
+}
+.sprinkles .sprinkle70 {
+  position: absolute;
+  left: 95.0791118165%;
+  top: 13.1204650511%;
+  background-color: rgb(241, 218, 191);
+  animation-delay: -7s;
+}
+.sprinkles .sprinkle71 {
+  position: absolute;
+  left: 87.820881842%;
+  top: 70.313051575%;
+  background-color: rgb(252, 82, 134);
+  animation-delay: -7.1s;
+}
+.sprinkles .sprinkle72 {
+  position: absolute;
+  left: 56.0936528368%;
+  top: 38.8084765103%;
+  background-color: rgb(170, 230, 113);
+  animation-delay: -7.2s;
+}
+.sprinkles .sprinkle73 {
+  position: absolute;
+  left: 5.753043698%;
+  top: 48.0386167133%;
+  background-color: rgb(236, 101, 154);
+  animation-delay: -7.3s;
+}
+.sprinkles .sprinkle74 {
+  position: absolute;
+  left: 26.6169214365%;
+  top: -0.6201990606%;
+  background-color: rgb(158, 165, 224);
+  animation-delay: -7.4s;
+}
+.sprinkles .sprinkle75 {
+  position: absolute;
+  left: 18.7025188064%;
+  top: 23.5157187671%;
+  background-color: rgb(182, 159, 114);
+  animation-delay: -7.5s;
+}
+.sprinkles .sprinkle76 {
+  position: absolute;
+  left: 35.1646354249%;
+  top: -7.9807510346%;
+  background-color: rgb(191, 182, 160);
+  animation-delay: -7.6s;
+}
+.sprinkles .sprinkle77 {
+  position: absolute;
+  left: 62.9856807681%;
+  top: 62.462268145%;
+  background-color: rgb(255, 156, 103);
+  animation-delay: -7.7s;
+}
+.sprinkles .sprinkle78 {
+  position: absolute;
+  left: 19.0030820343%;
+  top: 30.4995346133%;
+  background-color: rgb(255, 103, 109);
+  animation-delay: -7.8s;
+}
+.sprinkles .sprinkle79 {
+  position: absolute;
+  left: 34.1643183799%;
+  top: 17.437201367%;
+  background-color: rgb(255, 170, 128);
+  animation-delay: -7.9s;
+}
+.sprinkles .sprinkle80 {
+  position: absolute;
+  left: 63.7219469365%;
+  top: 37.1568819063%;
+  background-color: rgb(201, 95, 126);
+  animation-delay: -8s;
+}
+.sprinkles .sprinkle81 {
+  position: absolute;
+  left: 92.299955257%;
+  top: 36.4378924368%;
+  background-color: rgb(255, 88, 136);
+  animation-delay: -8.1s;
+}
+.sprinkles .sprinkle82 {
+  position: absolute;
+  left: 96.5066649073%;
+  top: 31.0276913718%;
+  background-color: rgb(209, 102, 134);
+  animation-delay: -8.2s;
+}
+.sprinkles .sprinkle83 {
+  position: absolute;
+  left: 13.2030435239%;
+  top: 70.7325266235%;
+  background-color: rgb(176, 158, 111);
+  animation-delay: -8.3s;
+}
+.sprinkles .sprinkle84 {
+  position: absolute;
+  left: 18.8468170464%;
+  top: -15.9576624157%;
+  background-color: rgb(232, 101, 208);
+  animation-delay: -8.4s;
+}
+.sprinkles .sprinkle85 {
+  position: absolute;
+  left: 21.5188692148%;
+  top: 34.5813316138%;
+  background-color: rgb(156, 165, 182);
+  animation-delay: -8.5s;
+}
+.sprinkles .sprinkle86 {
+  position: absolute;
+  left: 20.7345130599%;
+  top: 78.8965870403%;
+  background-color: rgb(226, 147, 135);
+  animation-delay: -8.6s;
+}
+.sprinkles .sprinkle87 {
+  position: absolute;
+  left: 18.7455114026%;
+  top: -9.1245291049%;
+  background-color: rgb(211, 102, 141);
+  animation-delay: -8.7s;
+}
+.sprinkles .sprinkle88 {
+  position: absolute;
+  left: 33.2899172639%;
+  top: 23.1657991305%;
+  background-color: rgb(159, 156, 94);
+  animation-delay: -8.8s;
+}
+.sprinkles .sprinkle89 {
+  position: absolute;
+  left: 10.3622680523%;
+  top: 76.9197023783%;
+  background-color: rgb(248, 206, 152);
+  animation-delay: -8.9s;
+}
+.sprinkles .sprinkle90 {
+  position: absolute;
+  left: 90.3654645999%;
+  top: 20.3511597831%;
+  background-color: rgb(255, 149, 165);
+  animation-delay: -9s;
+}
+.sprinkles .sprinkle91 {
+  position: absolute;
+  left: 67.0711205868%;
+  top: 46.0655399831%;
+  background-color: rgb(222, 144, 142);
+  animation-delay: -9.1s;
+}
+.sprinkles .sprinkle92 {
+  position: absolute;
+  left: 88.7192492217%;
+  top: 76.6153398283%;
+  background-color: rgb(238, 160, 170);
+  animation-delay: -9.2s;
+}
+.sprinkles .sprinkle93 {
+  position: absolute;
+  left: 79.7597488843%;
+  top: 43.9696075354%;
+  background-color: rgb(222, 146, 134);
+  animation-delay: -9.3s;
+}
+.sprinkles .sprinkle94 {
+  position: absolute;
+  left: 51.3490443044%;
+  top: 62.549099354%;
+  background-color: rgb(152, 138, 221);
+  animation-delay: -9.4s;
+}
+.sprinkles .sprinkle95 {
+  position: absolute;
+  left: 70.6584357635%;
+  top: 63.5622974119%;
+  background-color: rgb(255, 194, 97);
+  animation-delay: -9.5s;
+}
+.sprinkles .sprinkle96 {
+  position: absolute;
+  left: 54.7400189405%;
+  top: 64.304026488%;
+  background-color: rgb(199, 225, 211);
+  animation-delay: -9.6s;
+}
+.sprinkles .sprinkle97 {
+  position: absolute;
+  left: 94.0943018698%;
+  top: -10.141439966%;
+  background-color: rgb(184, 181, 136);
+  animation-delay: -9.7s;
+}
+.sprinkles .sprinkle98 {
+  position: absolute;
+  left: 51.3449412833%;
+  top: 3.9070075053%;
+  background-color: rgb(255, 187, 174);
+  animation-delay: -9.8s;
+}
+.sprinkles .sprinkle99 {
+  position: absolute;
+  left: 50.8421491868%;
+  top: 16.1987400752%;
+  background-color: rgb(245, 213, 227);
+  animation-delay: -9.9s;
+}
+.sprinkles .sprinkle100 {
+  position: absolute;
+  left: 88.3347499518%;
+  top: 44.4924816394%;
+  background-color: rgb(248, 175, 213);
+  animation-delay: -10s;
+}
+
+input:checked + .card {
+  background-position: 100%;
+}
+input:checked + .card * {
+  filter: brightness(98%);
+}
+input:checked + .card .candle-group .light {
+  animation: lightAni 1s infinite, lightDisappearAni 1s forwards;
+}
+input:checked + .card .candle-group .smoke:before, input:checked + .card .candle-group .smoke:after {
+  display: block;
+}
+input:checked + .card .candle-group .smoke:before {
+  width: 20px;
+  height: 20px;
+  top: -60%;
+  left: 35%;
+  border-radius: 50%;
+  animation: smokeTopAni 1s forwards;
+}
+input:checked + .card .candle-group .smoke:after {
+  width: 80px;
+  height: 5px;
+  top: -10%;
+  left: -100%;
+  border-radius: 10px;
+  transform-origin: 0% 50%;
+  animation: smokeLeftAni 1s forwards;
+}
+input:checked + .card .candle-group .candle .fire {
+  animation: fireAni 1s infinite, fireDisappearAni 1s forwards;
+}
+input:checked + .card .boy-head {
+  animation: blowHead 1s forwards;
+}
+input:checked + .card .face .mouth {
+  animation: blowMouth 1s forwards;
+}
+input:checked + .card .body {
+  animation: breath 2s infinite, blowBody 1s forwards;
+}
+input:checked + .card .sprinkles [class^=sprinkle] {
+  width: 6px;
+  height: 12px;
+}
+
+@keyframes titleAni {
+  60% {
+    transform: rotate(-2deg) scale(1.05) translate(2px, 2px);
+  }
+}
+@keyframes blink {
+  0%, 95% {
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: 0px 31px #ffddad inset;
+  }
+}
+@keyframes eyebrowsAni {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(-5%);
+  }
+}
+@keyframes blushAni {
+  0%, 100% {
+    transform: translateY(0%);
+  }
+  60% {
+    transform: translateY(5%);
+  }
+}
+@keyframes lightAni {
+  60% {
+    transform: scale(1.5);
+  }
+}
+@keyframes fireAni {
+  0%, 100% {
+    transform: translate(-40%, -100%) rotate(-28deg);
+  }
+  60% {
+    transform: translate(-30%, -110%) rotate(-40deg) scaleX(1.3) scaleY(1.1);
+    background: #ffc36b;
+  }
+}
+@keyframes leftHandAni {
+  0%, 100% {
+    transform: rotate(100deg);
+  }
+  60% {
+    transform: rotate(80deg);
+  }
+}
+@keyframes rightHandAni {
+  0%, 100% {
+    transform: rotate(-120deg);
+  }
+  60% {
+    transform: rotate(-80deg);
+  }
+}
+@keyframes breath {
+  60% {
+    transform: scaleX(1.05);
+  }
+}
+@keyframes breathMouth {
+  60% {
+    transform: rotate(-5deg) scale(1.1);
+  }
+}
+@keyframes sprinkleAni {
+  0%, 100% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(50px, 250px);
+  }
+}
+@keyframes blowMouth {
+  30% {
+    transform: rotate(-5deg) scale(1.5);
+  }
+  70% {
+    transform: rotate(-5deg) scale(0.2);
+  }
+  100% {
+    transform: rotate(-5deg) scale(0.3);
+  }
+}
+@keyframes blowHead {
+  0%, 100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+}
+@keyframes blowBody {
+  0%, 100% {
+    width: 90%;
+    height: 80%;
+  }
+  30% {
+    width: 100%;
+    height: 80%;
+    left: -5%;
+  }
+  70% {
+    width: 80%;
+    height: 80%;
+    left: 1%;
+  }
+}
+@keyframes lightDisappearAni {
+  0%, 69% {
+    opacity: 1;
+    width: 100px;
+    height: 100px;
+  }
+  70%, 100% {
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+  }
+}
+@keyframes fireDisappearAni {
+  0%, 69% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes smokeTopAni {
+  0%, 60%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.2);
+    top: -70%;
+    left: 20%;
+  }
+  100% {
+    top: -90%;
+    left: 0%;
+  }
+}
+@keyframes smokeLeftAni {
+  0%, 60%, 100% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  70% {
+    left: -120%;
+    opacity: 1;
+    transform: scaleX(1.1);
+  }
+  100% {
+    left: -150%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,19 @@
+{
+  "name": "birthday",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "pug": "pug main.pug --out . --pretty",
+    "pug:watch": "pug --watch main.pug --out . --pretty",
+    "sass": "sass main.scss main.css",
+    "sass:watch": "sass --watch main.scss:main.css",
+    "serve": "live-server --open=main.html",
+    "dev": "concurrently \"pug --watch main.pug --out . --pretty\" \"sass --watch main.scss:main.css\" \"live-server --open=main.html\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "live-server": "^1.2.2",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.94.0"
+  }
+}

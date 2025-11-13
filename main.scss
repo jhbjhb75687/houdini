@@ -1,0 +1,746 @@
+@import url('https://fonts.googleapis.com/css?family=Coming+Soon');
+
+//------ VARIABLES START ------
+$outlineColor: #4c2a1e;
+$border: 4px solid $outlineColor;
+$shadow: 0px rgba(black,0.15) inset;
+
+$backgroundColor: #242026;
+$cardColor: #fff3d8;
+$cardGradient: linear-gradient(40deg, #fff3d8,#ffd987,#cc921e);
+$cardWidth: 700px;
+$cardHeight: 460px;
+
+$candleColor: #ff593f;
+$fireColor: #ffcc66;
+$fireColor2: #ffc36b;
+$smokeColor: rgba(#b3b1b5,0.8);
+
+$cakeTopColor: #54728c;
+$cakeTopButterColor: #85b6bf;
+
+$cakeBottomColor: #fcdda4;
+$cakeBottomButterColor: #fc7164;
+
+$cakeWidth: 260px;
+$cakeHeight: 65px;
+$cakeBdrs: 10px;
+
+$boyWidth: 230px;
+$boyHeight: 280px;
+
+$boyFaceColor: #ffddad;
+$boyBlushColor: #ffa49e;
+$boyBodyColor: #4b84d8;
+
+$deskColor: #f4b7b5;
+//------ VARIABLES END ------
+
+//------ MIXINS START ------
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin size( $w: $w, $h: $w, $minSize: false){
+  width: $w;
+  height: $h;
+  @if($minSize == true){
+    min-width: $w;
+    min-height: $h;
+  }
+}
+
+@mixin abpos($l:initial,$t:initial){
+  position: absolute;
+  left: $l;
+  top: $t;
+}
+//------ MIXINS END ------
+
+//------ MAIN START ------
+*{
+  transition: 2s;
+}
+html,body{
+  margin: 0;
+  @include flex-center;
+  @include size(100%);
+  background-color: $backgroundColor;
+}
+label{
+  cursor: pointer;
+}
+input{
+  display: none;
+}
+.hint{
+  color: rgba(white,0.5);
+  font-family: 'Coming Soon', cursive;
+  margin: 10px auto;
+}
+.card{
+  @include size($cardWidth, $cardHeight, true);
+  background-image: $cardGradient;
+  background-size: 200% 100%;
+  background-position: 0;
+  border-radius: $cakeBdrs * 2;
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(black, 0.5);
+  overflow: hidden;
+}
+
+.title{
+  font-family: 'Coming Soon', cursive;
+  font-size: 60px;
+  margin: 40px 45px;
+  color: $outlineColor;
+  transform: rotate(-3deg);
+  position: absolute;
+  z-index: 999;
+  animation: titleAni 2s infinite;
+  span{
+    display: block;
+    line-height: 1.3;
+  }
+}
+//------ MAIN END ------
+
+//------ CAKE START ------
+.cake{
+  @include size($cakeWidth,$cakeHeight);
+  position: absolute;
+  top: 56%;
+  left: 17%;
+  z-index: 999;
+}
+
+.candle-group{
+  @include size(20%,65%);
+  margin: auto;
+  display:flex;
+  justify-content: space-around;
+  .light{
+    @include size(100px);
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(white,0.8);
+    top: -80%;
+    animation: lightAni 1s infinite;
+  }
+  .smoke{
+    @include size(100px);
+    position: absolute;
+    &:before,&:after{
+      content:'';
+      display: none;
+      background-color: $smokeColor;
+      box-shadow: 0 0 5px rgba($smokeColor,0.8);
+      position: absolute;
+    }
+  }
+  .candle{
+    background: $candleColor;
+    @include size(20%,100%);
+    position: relative;
+    border: $border;
+    border-radius: $cakeBdrs/2 $cakeBdrs/2 0 0;
+    box-shadow: -3px $shadow;
+    &:before{
+      content: '';
+      display: block;
+      background: white;
+      @include size(100%,35%);
+      transform: skewY(-30deg);
+      position: absolute;
+      top: 30%;
+      box-shadow: -3px $shadow;
+    }
+    .fire{
+      @include size(130%,45%);
+      position: absolute;
+      background: $fireColor;
+      top: 0;
+      left: 100%;
+      border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+      border: $border;
+      transform: translate(-40%,-100%) rotate(-28deg);
+      transform-origin: 50% 100%;
+      box-shadow: -3px $shadow;
+      animation: fireAni 1s infinite;
+    }
+  }
+}
+
+.cake-top{
+  @include size(0.8*80%,90%);
+  background-color: $cakeTopColor;
+  margin: auto;
+  position: relative;
+  border-radius: $cakeBdrs $cakeBdrs 0 0;
+  border-top: $border;
+  border-left: $border;
+  border-right: $border;
+  box-shadow: -25px $shadow;
+  &:before{
+    content:'';
+    display: block;
+    @include size(100%, 30%);
+    background-color: $cakeTopButterColor;
+    position: relative;
+    top: 50%;
+    transform: translatey(-50%);
+    box-shadow: -25px $shadow;
+  }
+}
+
+.cake-bottom{
+  @include size(80%,100%);
+  background-color: $cakeBottomColor;
+  border-radius: $cakeBdrs $cakeBdrs 0 0;
+  margin: auto;
+  border-left: $border;
+  border-right: $border;
+  border-top: $border;
+  box-shadow: -35px $shadow;
+  .butter{
+    @include size(100%, 55%);
+    background-color: $cakeBottomButterColor;
+    display: flex;
+    position: relative;
+    border-radius: $cakeBdrs*0.7 $cakeBdrs*0.7 0 0;
+    box-shadow: -35px $shadow;
+    .butter-circle{
+      @include size(100%,100%);
+      border-radius: 100%;
+      position: relative;
+      top: 40%;
+      background-color: $cakeBottomButterColor;
+    }
+    .butter-circle:nth-of-type(6){
+      box-shadow: -35px $shadow;
+    }
+  }
+}
+.plate{
+  @include size(100%, 20%);
+  border-radius: $cakeBdrs;
+  background-color: $outlineColor;
+  left: -50%;
+  box-shadow: -45px $shadow;
+}
+//------ CAKE END ------
+
+//------ BOY START ------
+.boy{
+  @include size($boyWidth,$boyHeight);
+  position: absolute;
+  top: 15%;
+  left: 55%;
+  z-index: 99;
+}
+
+.boy-head{
+  @include size(100%);
+  position: relative;
+  z-index: 99;
+}
+.hairs{
+  @include size(110%, 60%);
+  position: absolute;
+  z-index: 10;
+  transform: translatex(-4%) rotate(7deg);
+    [class^="hair"]{
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: transparent transparent $outlineColor transparent;
+      display: inline-block;
+      position: absolute;
+  }
+  .hair1{
+    border-width: 0 60px 120px 40px;
+    transform: rotate(-30deg);
+    top: -5%;
+    left: -8%;
+  }
+  .hair2{
+    border-width: 0 50px 135px 50px;
+    transform: rotate(-15deg);
+    top: -25%;
+    left: 5%;
+  }
+  .hair3{
+    border-width: 0 60px 130px 50px;
+    transform: rotate(-5deg);
+    top: -30%;
+    left: 20%;
+  }
+  .hair4{
+    border-width: 0 50px 140px 60px;
+    transform: rotate(5deg);
+    top: -35%;
+    left: 35%;
+  }
+  .hair5{
+    border-width: 0 60px 130px 50px;
+    transform: rotate(15deg);
+    top: -25%;
+    left: 55%;
+  }
+  .hair6{
+    border-width: 0 50px 120px 50px;
+    transform: rotate(20deg);
+    top: -10%;
+    left: 70%;
+  }
+}
+.face{
+  @include size(100%);
+  border-radius: 150px 150px 160px 130px;
+  background-color: $boyFaceColor;
+  position: relative;
+  border: $border;
+  box-shadow: -20px $shadow;
+  .eyebrows{
+    position: relative;
+    top: 35%;
+    left: -10%;
+    @include size(100%, 15%);
+    animation: eyebrowsAni 2s infinite;
+    &:before, &:after{
+      content:"";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      position: absolute;
+      z-index: 10;
+      filter: drop-shadow(5px 5px 5px rgba(black, 0.3));
+    }
+    &:before{
+      border-width: 30px 0 0 100px;
+      border-color: transparent transparent transparent $outlineColor;
+      transform: rotate(12deg);
+      left: -3%;
+    }
+    &:after{
+      border-width: 0 0 30px 120px;
+      border-color: transparent transparent $outlineColor transparent;
+      transform: rotate(-12deg);
+      left: 58%;
+      top: -1%;
+    }
+  }
+  .blush{
+    top: 65%;
+    position: absolute;
+    @include size(70%, 7%);
+    z-index: 999;
+    animation: blushAni 2s infinite;
+    &:before, &:after{
+      content:"";
+      display: block;
+      position: absolute;
+      background-color: $boyBlushColor;
+      border-radius: 45%;
+      box-shadow: -8px -5px rgba(black,0.1) inset;
+      border: $border;
+    }
+    &:before{
+      @include size(25%, 100%);
+      left: -20%;
+    }
+    &:after{
+      @include size(30%, 105%);
+      left: 100%;
+      top: 10%;
+    }
+  }
+  .eyes{
+    position: relative;
+    top: 37%;
+    left: 8%;
+    @include size(90%, 11%);
+    &:before, &:after{
+      content:"";
+      display: inline-block;
+      @include size(18px, 100%);
+      background-color: $outlineColor;
+      border-radius: 45%;
+      position: absolute;
+      z-index: 10;
+      animation: blink 2s infinite;
+    }
+    &:before{
+      left:0;
+    }
+    &:after{
+      left: 55%;
+    }
+  }
+  .mouth{
+    position: relative;
+    top: 45%;
+    left: 24%;
+    @include size(20%, 20%);
+    box-shadow: 15px $shadow;
+    border-radius: 48%;
+    background-color: $outlineColor;
+    transform: rotate(-5deg);
+    transform-origin: 0 50%;
+    animation: breathMouth 2s infinite;
+  }
+}
+.boy-body{
+  @include size(36%,26.8%);
+  position: relative;
+  margin: auto;
+}
+.body{
+    @include size(90%,80%);
+    position: relative;
+    z-index: 50;
+    border-radius: 50% 50% 0 0;
+    background-color: $boyBodyColor;
+    border: $border;
+    top: -11%;
+    box-shadow: -25px $shadow;
+    z-index: 8;
+    overflow: hidden;
+    animation: breath 2s infinite;
+    &:before,&:after{
+      content:"";
+      display: block;
+      @include size(12px);
+      background-color: rgba(#ffffff,0.9);
+      border: $border;
+      border-radius: 50%;
+      position: relative;
+      top: 14%;
+      left: 6%;
+      margin: 10px; 
+      box-shadow: -3px $shadow;
+  }
+}
+.hands{
+  .left-hand,.right-hand{
+      @include size(35%,130%);
+      border-radius: 20px;
+      background-color: $boyFaceColor;
+      position: absolute;
+      border: $border;
+      box-shadow: -10px $shadow;
+      z-index: 1000;
+      transform-origin: center top;
+      &:before{
+        content:'';
+        display: block;
+        @include size(100%,30%);
+        background-color: $boyBodyColor;
+        box-shadow: -10px $shadow;
+        border: $border;
+        border-radius: 20px 20px 0 0;
+        position: absolute;
+        top: -4px;
+        left: -4px;
+      }
+  }
+  .left-hand{
+    top: 25%;
+    left: 4px;
+    transform:rotate(100deg);
+    z-index: -1;
+    animation: leftHandAni 2s infinite;
+  }
+  .right-hand{
+    top: 25%;
+    left: 50%;
+    transform:rotate(-120deg);
+    animation: rightHandAni 2s infinite;
+  }
+}
+//------ BOY END ------
+
+//------ DESK START ------
+.desk{
+  @include size(100%, 15%);
+  border-top: $border;
+  position: absolute;
+  top: 88%;
+  background-color: $deskColor;
+  z-index: 50;
+  box-shadow: 0px -20px rgba(black,0.2) inset;
+}
+//------ DESK END ------
+
+//------ SPRINKLES START ------
+.sprinkles{
+  @include size(100%,100%);
+  @include abpos(0,0);
+  [class^='sprinkle']{
+    @include size(5px,10px);
+    border-radius: 50%;
+    animation: sprinkleAni 5s infinite;
+  }
+  @for $i from 1 through 100{
+    .sprinkle#{$i}{
+      $left: random()*100%;
+      $top: random()*100%-20%;
+      @include abpos($left,$top);
+      background-color: rgb(150 + random(150), 80 + random(150), 80 + random(150));
+      animation-delay: $i*-0.1s;
+    }
+  }
+}
+//------ SPRINKLES END ------
+
+//------ CHECKED START ------
+input:checked + .card{
+  background-position: 100%;
+  *{
+    filter:brightness(98%);
+  }
+  .candle-group{
+    .light{
+      animation: lightAni 1s infinite, lightDisappearAni 1s forwards;
+    }
+    .smoke{
+      &:before,&:after{
+        display: block;
+      }
+      &:before{
+        @include size(20px);
+        top: -60%;
+        left: 35%;
+        border-radius: 50%;
+        animation: smokeTopAni 1s forwards;
+      }
+      &:after{
+        @include size(80px, 5px);
+        top: -10%;
+        left: -100%; 
+        border-radius: 10px;
+        transform-origin: 0% 50%;
+        animation: smokeLeftAni 1s forwards;
+      }      
+    }
+    .candle{
+      .fire{
+        animation: fireAni 1s infinite, fireDisappearAni 1s forwards;
+      }
+    }
+  }
+  .boy-head{
+    animation: blowHead 1s forwards;
+  }
+  .face{
+    .mouth{
+      animation: blowMouth 1s forwards;
+    }
+  }
+  .body{
+    animation: breath 2s infinite, blowBody 1s forwards;
+  }
+  .sprinkles{
+    [class^='sprinkle']{
+      @include size(6px,12px);
+      }
+  }
+}
+//------ CHECKED END ------
+
+
+//------ ANIMATION START ------
+@keyframes titleAni{
+  0%,100%{
+  }
+  60%{
+    transform: rotate(-2deg) scale(1.05) translate(2px,2px);
+  }
+}
+@keyframes blink{
+  0%,95%{
+    box-shadow: none;
+  }
+  100%{
+    box-shadow: 0px 31px $boyFaceColor inset;
+  }
+}
+
+@keyframes eyebrowsAni{
+  0%,100%{
+    transform: translateY(0%);
+  }
+  80%{
+    transform: translateY(-5%);
+  }
+}
+
+@keyframes blushAni{
+  0%,100%{
+    transform: translateY(0%);
+  }
+  60%{
+    transform: translateY(5%);
+  }
+}
+
+@keyframes lightAni{
+  0%,100%{
+  }
+  60%{
+    transform: scale(1.5);
+  }
+}
+@keyframes fireAni{
+  0%,100%{
+    transform: translate(-40%,-100%) rotate(-28deg);
+  }
+  60%{
+    transform: translate(-30%,-110%) rotate(-40deg) scaleX(1.3) scaleY(1.1);
+    background: $fireColor2;
+  }
+}
+
+@keyframes leftHandAni{
+  0%,100%{
+    transform:rotate(100deg);
+  }
+  60%{
+    transform:rotate(80deg);
+  }
+}
+
+@keyframes rightHandAni{
+  0%,100%{
+    transform:rotate(-120deg);
+  }
+  60%{
+    transform:rotate(-80deg);
+  }
+}
+
+@keyframes breath{
+  0%,100%{
+  }
+  60%{
+    transform: scaleX(1.05);
+  }
+}
+
+@keyframes breathMouth{
+  0%,100%{
+  }
+  60%{
+    transform: rotate(-5deg) scale(1.1);
+  }
+}
+@keyframes sprinkleAni{
+  0%,100%{
+    opacity: 0;
+  }   
+  70%{
+    opacity: 1;
+  }      
+  100%{
+    transform: translate(50px,250px);
+  } 
+}
+
+@keyframes blowMouth{
+  0%{
+  }
+  30%{
+    transform: rotate(-5deg) scale(1.5);
+  }
+  70%{
+    transform: rotate(-5deg) scale(0.2);
+  }
+  100%{
+    transform: rotate(-5deg) scale(0.3);
+  }
+}
+@keyframes blowHead{
+  0%,100%{
+    transform:scale(1);
+  }
+  30%{
+    transform:scale(1.05);
+  }
+  70%{
+    transform:scale(0.95);
+  }
+}
+
+@keyframes blowBody{
+  0%,100%{
+    @include size(90%,80%);
+  }
+  30%{
+    @include size(100%,80%);
+    left: -5%;
+  }
+  70%{
+    @include size(80%,80%);
+    left: 1%;
+  }
+}
+
+@keyframes lightDisappearAni{
+  0%,69%{
+    opacity: 1;
+    @include size(100px);
+  }
+  70%,100%{
+    opacity: 0;
+    @include size(0px);
+  }
+}
+
+@keyframes fireDisappearAni{
+  0%,69%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes smokeTopAni{
+  0%,60%,100%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  70%{
+    opacity: 1;
+    transform: scale(1.2);
+    top: -70%;
+    left: 20%;
+  }
+  100%{
+    top: -90%;
+    left: 0%;
+  }
+}
+
+@keyframes smokeLeftAni{
+  0%,60%,100%{
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  70%{
+    left: -120%;
+    opacity: 1;
+    transform: scaleX(1.1);
+  }
+  100%{
+    left: -150%;
+  }
+}
+//------ ANIMATION END ------
