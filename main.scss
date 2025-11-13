@@ -9,10 +9,7 @@ $backgroundColor: #242026;
 $cardColor: #fff3d8;
 $cardGradient: linear-gradient(40deg, #fff3d8,#ffd987,#cc921e);
 $cardWidth: 700px;
-$cardHeight: 460px;
-
-// Responsive breakpoints
-$bp-sm: 600px;
+$cardHeight: 394px;
 
 $candleColor: #ff593f;
 $fireColor: #ffcc66;
@@ -68,12 +65,22 @@ $deskColor: #f4b7b5;
 }
 html,body{
   margin: 0;
-  @include flex-center;
-  @include size(100%);
+  width: 100%;
+  height: 100vh;
   background-color: $backgroundColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 label{
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 input{
   display: none;
@@ -81,11 +88,12 @@ input{
 .hint{
   color: rgba(white,0.5);
   font-family: 'Coming Soon', cursive;
-  margin: 10px auto;
+  margin: 8px auto;
+  font-size: 14px;
 }
 .card{
-  width: min(90%, $cardWidth);
-  max-width: $cardWidth;
+  aspect-ratio: 16 / 9;
+  width: min(98vw, min(100vw, 90vh * 16 / 9));
   background-image: $cardGradient;
   background-size: 200% 100%;
   background-position: 0;
@@ -93,22 +101,24 @@ input{
   position: relative;
   box-shadow: 5px 5px 5px rgba(black, 0.5);
   overflow: hidden;
-  padding: 30px;
+  padding: 0;
   box-sizing: border-box;
 }
 
 .title{
   font-family: 'Coming Soon', cursive;
-  font-size: clamp(28px, 6vw, 60px);
-  margin: 10px 20px;
+  font-size: clamp(18px, 4.5vw, 48px);
+  margin: 0;
   color: $outlineColor;
   transform: rotate(-3deg);
   position: absolute;
+  top: 8%;
+  left: 4%;
   z-index: 999;
   animation: titleAni 2s infinite;
   span{
     display: block;
-    line-height: 1.2;
+    line-height: 1.1;
   }
 }
 //------ MAIN END ------
@@ -117,10 +127,9 @@ input{
 .cake{
   @include size($cakeWidth,$cakeHeight);
   position: absolute;
-  top: 56%;
-  left: 17%;
+  top: 54%;
+  left: 12%;
   z-index: 999;
-  transition: transform 0.25s ease;
 }
 
 .candle-group{
@@ -243,38 +252,81 @@ input{
 .boy{
   @include size($boyWidth,$boyHeight);
   position: absolute;
-  top: 15%;
-  left: 55%;
+  top: 10%;
+  right: 6%;
   z-index: 99;
-  transition: transform 0.25s ease;
 }
 
-// Mobile adjustments
-@media (max-width: $bp-sm){
+// Mobile & smaller screens adjustments
+@media (max-width: 900px){
   .card{
-    padding: 18px;
-    border-radius: calc(#{$cakeBdrs} * 1.2);
-  }
-  .title{
-    position: relative;
-    transform: none;
-    margin: 0 0 8px 0;
-    text-align: center;
+    width: 96vw;
   }
   .cake{
-    left: 50%;
-    top: 55%;
-    transform: translateX(-50%) scale(0.72);
+    width: 200px;
+    height: 50px;
+    left: 10%;
+    top: 56%;
   }
   .boy{
-    left: 70%;
-    top: 8%;
-    transform: translateX(-50%) scale(0.8);
+    width: 180px;
+    height: 220px;
+    top: 12%;
+    right: 5%;
   }
-  .card, html, body{
-    height: auto;
+  .title{
+    font-size: clamp(16px, 3.5vw, 32px);
+    top: 6%;
+    left: 3%;
   }
 }
+
+// Phone screens (16:9 layout optimized)
+@media (max-width: 600px){
+  html, body{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  label{
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  .card{
+    width: 100vw;
+    aspect-ratio: 16 / 9;
+    height: 56.25vw;
+    border-radius: 0;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .hint{
+    font-size: 11px;
+    margin: 3px auto;
+    order: -1;
+  }
+  .title{
+    font-size: clamp(12px, 3vw, 22px);
+    top: 4%;
+    left: 2%;
+  }
+  .cake{
+    width: 120px;
+    height: 30px;
+    left: 5%;
+    top: 62%;
+  }
+  .boy{
+    width: 100px;
+    height: 130px;
+    top: 15%;
+    right: 3%;
+  }
+}
+//------ RESPONSIVE DESIGN END ------
 
 .boy-head{
   @include size(100%);
